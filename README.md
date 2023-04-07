@@ -2,47 +2,29 @@
 
 <img src="https://res.cloudinary.com/dyuv3x8ly/image/upload/v1665135860/nfuBlog/mnikwzh3shwtiovcrmfl.png" height="320" alt="NFU Studio logo" />
 
+This React app displays the login form and communicates with the API.
+
 ---
 
-We're [NFU Studio](https://nfustudio.com) - a software and design crew from Biała Podlaska. We specialize in whipping up digital wonders that make other brands shine bright. From lightning-fast sites to killer graphics, we've got the goods to make your online presence pop.
+## App Description
+- On startup, the user sees a login form, which has two fields and a button
+- Each of the presented fields has a validation, without which user can not submit the form and move to the next screen
+- At the same time a request is sent to the API and a response is received
+- If the form is submitted correctly, the user will be redirected to the next screen, where the response from the API will be shown
 
-## What's in here
+## Setup
+Install the dependencies:
+```
+yarn install
+yarn add react-router-dom @types/react-router-dom
+yarn add axios @types/axios
+```
 
-This is a simple 'test' in which you should use provided scaffolding to write simple React app.
-Feel free to use your go-to tools to make it look and work amazing.
+## Development Server
+Start the development server on http://localhost:5174
+```
+yarn dev
+```
 
-### The app
-
-Your task is to create a simple app as shown on [wireframes](https://www.figma.com/file/EvYV7l0DhQsgiZI9cJ0OVc/NFU-Studio-Recruitment-Test-0?node-id=0%3A1&t=QizQaNFzwuHdU791-1).
-
-The app should:
-
-- display a login form
-- verify user input using some form of validation
-- send request to the [API](https://yesno.wtf/api)
-- based on the API response, show a second screen
-
-## Getting started
-
-1. Fork this repository
-2. Create branch with your name
-3. Solve it!
-4. Send us a PR
-
-### Step-by-Step Guide for Beginners
-
-Here's a simple guide to get you started:
-
-- First, make sure you have Node installed.
-- Although we prefer using `yarn` to run commands, it's not a requirement.
-- After forking the repo, creating a new branch, and installing the dependencies, check the `package.json` file for the scripts section.
-  - To invoke a script, use either `yarn` or `npm` followed by `${COMMAND}`.
-  - The commands are straightforward, but you'll probably only need to use `yarn dev`.
-
-## Tips
-
-- Write a README.
-- We provided wireframes - treat them as guidelines only.
-- Prefer tooling included, but we're open to see your tools
-
-**BUT DON'T USE PHP**
+## Used technologies
+- React + TypeScript
