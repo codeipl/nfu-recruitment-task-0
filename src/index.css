@@ -13,3 +13,45 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+* {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main, .header, .footer, .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  margin: 16px;
+  
+  /* border: 1px dashed #C60000; */
+}
+
+.header, .footer {
+  height: 31px;
+  padding: 8px;
+  margin: 16px;
+
+  /* border: 1px dashed #C60000; */
+}
+
+.container {
+  flex: 1;
+  
+  text-align: center;
+  
+  min-height: 82vh;
+}
