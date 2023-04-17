@@ -1,25 +1,16 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Login from './components/LoginForm/Login'
-import Result from './components/ResultComponent/Result'
-import Header from './components/Header/Header'
+import Login from './components/Login'
+import Result from './components/Result'
 
 
 function App() {
   return ( 
     <Router>
-      <header className='header'>
-        <Header />
-      </header>
-      <main className='main'>
-         <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/result' element={<Result />} />
-        </Routes>
-      </main>
-      <footer className='footer'>
-        <Header />
-      </footer>
+        <Routes>
+        <Route path='/' element={<Login />} />
+        <Route path='/result' element={<Result />} />
+      </Routes>
     </Router>
   );
 }

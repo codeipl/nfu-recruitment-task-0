@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios' // służy do wykonywania żądań HTTP
-
-import './Login.css'
+import axios from 'axios'
 
 export default function Login() {
     const [username, setUsername] = useState('')
@@ -13,7 +11,7 @@ export default function Login() {
 
     const navigate = useNavigate()
 
-    const fetchData = async () => { // pobiera dane z API
+    const fetchData = async () => {
         try {
             const response = await axios.get("https://yesno.wtf/api")
             const { answer, image } = response.data
@@ -24,7 +22,7 @@ export default function Login() {
         }
     }
 
-    useEffect(() => { // wywoła funkcję przy renderowaniu komponentu
+    useEffect(() => {
         fetchData()
     })
 

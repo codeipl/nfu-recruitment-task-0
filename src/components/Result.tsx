@@ -1,9 +1,7 @@
 import { useLocation } from 'react-router-dom'
 
-import './Result.css'
-
 export default function Result() {
-    const location = useLocation() // zwraca obiekt zawierający aktualny adres URL oraz informacje o jego stanie
+    const location = useLocation()
     const { answer, image } = location.state
 
     return (
