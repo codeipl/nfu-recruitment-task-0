@@ -1,8 +1,7 @@
-import { useLocation } from 'react-router-dom'
+import { useParams } from "react-router-dom";
 
 export default function Result() {
-    const location = useLocation()
-    const { answer, image } = location.state
+    const { answer, image } = useParams();
 
     return (
         <div className='grid grid-cols-1 sm:grid-cols-2 h-screen w-full'>
