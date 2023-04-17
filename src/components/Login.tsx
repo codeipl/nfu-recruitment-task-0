@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import axios from 'axios'
@@ -11,31 +10,21 @@ type FormData = {
 
 export default function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
-
-    const [answer, setAnswer] = useState('')
-    const [image, setImage] = useState('')
-
     const navigate = useNavigate()
 
-    const fetchData = async () => {
+    const onSubmit = async () => {
         try {
             const response = await axios.get("https://yesno.wtf/api")
             const { answer, image } = response.data
-            setAnswer(answer)
-            setImage(image)
+
+            console.log(answer, image)
+
+            navigate(`/result/${answer}/${encodeURIComponent(image)}`, { replace: false })
         } catch (error) {
             console.error(error)
+            
+            navigate(`/error/${error}`)
         }
-    }
-
-    useEffect(() => {
-        fetchData()
-    })
-
-    const onSubmit = () => {
-        let newAns = 'yes'
-        let newImg = 'https://yesno.wtf/assets/yes/15-3d723ea13af91839a671d4791fc53dcc.gif'
-        navigate(`/result/${newAns}/${encodeURIComponent(newImg)}`)
     }
 
     return (

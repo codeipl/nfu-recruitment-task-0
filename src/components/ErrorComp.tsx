@@ -1,4 +1,12 @@
+import { useNavigate } from 'react-router-dom'
+
 export default function Error () {
+    const navigate = useNavigate()
+
+    const handleSubmit = () => {
+        navigate('/', { replace: true })
+    }
+    
     return (
         <div className="h-screen w-full bg-[#2e4d41] flex flex-col items-center justify-center">
             <h1 className="text-4xl font-bold uppercase text-white text-center">Oops.. An error occurred</h1>
