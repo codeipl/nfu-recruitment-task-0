@@ -1,13 +1,19 @@
+import React from 'react';
 import LoginForm from './LoginForm';
 import APIAnswer from './APIAnswer';
 
-function MyContent() {
+export default class MyContent extends React.Component{
+    render(){
+        let isSendAPIRequest;
+
     return (
-    <div className="content">
-        <LoginForm />
-    </div>
+        <div className="content">
+            {!isSendAPIRequest ? (
+            <LoginForm />
+            ):(
+            <APIAnswer />
+            )}
+        </div>
     );
-  }
-  
-  export default MyContent
-  
+    }
+}
