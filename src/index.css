@@ -13,3 +13,25 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.header{
+  border:1px dashed red;
+  text-align:center;
+  margin:5px;
+}
+
+.content{
+  border:1px dashed red;
+  height:50vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction: row;
+  margin:5px;
+}
+
+.footer{
+  border:1px dashed red;
+  text-align:center;
+  margin:5px;
+}
