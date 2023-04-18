@@ -29,4 +29,4 @@ yarn dev
 ```
 
 ## Used technologies
-- React + TypeScript
+- React + TypeScript + Tailwind CSS
