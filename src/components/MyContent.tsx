@@ -3,12 +3,15 @@ import LoginForm from './LoginForm';
 import APIAnswer from './APIAnswer';
 
 export default class MyContent extends React.Component{
+    state = {
+        isSendAPIRequest: true
+    };
+
     render(){
-        let isSendAPIRequest;
 
     return (
         <div className="content">
-            {!isSendAPIRequest ? (
+            {!this.state.isSendAPIRequest ? (
             <LoginForm />
             ):(
             <APIAnswer />
