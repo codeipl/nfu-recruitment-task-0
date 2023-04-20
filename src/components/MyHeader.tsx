@@ -4,7 +4,7 @@ export default class MyHeader extends React.Component{
     render(){
         return (
             <div className="header">
-                Sebastian NFU Requirement Task
+                <span>Sebastian NFU Requirement Task</span>
             </div>
         );
     }

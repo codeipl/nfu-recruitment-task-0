@@ -106,3 +106,8 @@ form{
   background-color:#241c25;
   border-radius:.5rem;
 }
+
+.error{
+  color:rgb(245, 154, 154);
+  height:2rem;
+}
