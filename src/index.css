@@ -21,7 +21,7 @@ body{
 
 .container{
   border-radius:5px 0 0 5px;
-  height:80vh;
+  height:20vh;
   display:flex;
   align-items: center;
   justify-content: center;
@@ -33,14 +33,71 @@ body{
 .header{
   text-align:center;
   padding:0.75rem 0;
-  font-size:2.5rem;
-  background-color:#241c25;
-  border-bottom:3px solid #290234;
   width:100%;
 }
 
+.header > img{
+  width:100%;
+  height:auto;
+}
+
+.website-title{
+  position:absolute;
+  left:50%;
+  transform:translate(-50%);
+  color:rgb(245, 246, 250);
+  mix-blend-mode: hard-light;
+  font-weight:600;
+  text-shadow:2px 2px #000;
+}
+
+.website-title > h1, .website-title > h2{
+  padding:0;
+  margin:0;
+}
+
+@media screen and (max-width: 1050px){
+  .website-title{
+    top: 5%;
+  }
+
+  .website-title > h1{
+    font-size:1.5rem;
+  }
+
+  .website-title > h2{
+    font-size:1rem;
+  }
+}
+
+@media screen and (min-width: 1050px) and (max-width: 1500px){
+  .website-title{
+    top: 10%;
+  }
+
+  .website-title > h1{
+    font-size:2.5rem;
+  }
+
+  .website-title > h2{
+    font-size:1.5rem;
+  }
+}
+
+@media screen and (min-width: 1500px){
+  .website-title{
+    top: 5%;
+  }
+  .website-title > h1{
+    font-size:5rem;
+  }
+
+  .website-title > h2{
+    font-size:2.5rem;
+  }
+}
+
 .content{
-  height:50vh;
   display:flex;
   flex-direction: row;
   flex-direction:column;
@@ -55,26 +112,6 @@ body{
   padding:0.75rem 0;
   font-size:0.75rem;
   width:100%;
-}
-
-.inputField{
-  display:block;
-  width:100%;
-  height:2rem;
-  margin-top:1.5rem;
-  border:0;
-  border-bottom:5px solid black;
-  background-color: transparent;
-  text-align:center;
-}
-
-input[type=submit]{
-  display:block;
-  width:100%;
-  height:2rem;
-  margin-top:1.5rem;
-  border:0;
-  color:black;
 }
 
 .answer-container{
@@ -100,11 +137,64 @@ input[type=submit]{
   justify-content: center;
 }
 
-form{
-  padding:5rem;
-  box-shadow:1px 1px 5px 0 #290234;
-  background-color:#241c25;
-  border-radius:.5rem;
+.login-form{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -15%);
+  background-color:rgba(255,255,255,0.9);
+  padding:1.5rem;
+  box-shadow: 5px 5px 15px 15px #242424;
+  text-align: center;
+}
+
+.login-form > h2{
+  font-size:3rem;
+  text-align: center;
+  color:#232323;
+}
+
+@media screen and (max-width: 1050px){
+  .login-form{
+    width:95%;
+    height:50%;
+  }
+}
+
+@media screen and (min-width: 1050px) and (max-width: 1500px){
+  .login-form{
+    width:60%;
+    height:45%;
+  }
+}
+
+@media screen and (min-width: 1500px){
+  .login-form{
+    width:40%;
+    height:35%;
+  }
+}
+
+.inputField{
+  display:block;
+  width:100%;
+  height:2rem;
+  margin-top:1.5rem;
+  border:0;
+  border-bottom:5px solid black;
+  background-color: transparent;
+  color:#232323;
+  text-align:center;
+  font-size:1.25rem;
+}
+
+input[type=submit]{
+  display:block;
+  width:100%;
+  height:2rem;
+  margin-top:1.5rem;
+  border:0;
+  color:black;
 }
 
 .error{
