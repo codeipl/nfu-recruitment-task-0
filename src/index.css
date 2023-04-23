@@ -129,6 +129,14 @@ body{
   font-size:48px;
 }
 
+.answer-yes{
+  color:rgb(7, 105, 28)
+}
+
+.answer-no{
+  color: rgb(163, 21, 21);
+}
+
 .answer-image{
   width:50%;
   box-sizing:border-box;
