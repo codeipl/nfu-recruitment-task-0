@@ -62,11 +62,11 @@ class LoginForm extends React.Component<LoginFormProps>{
         return(
             <form className="login-form" onSubmit={this.sendAPIRequest}>
                 <h2>Login to the website</h2>
-                <input type="text" className="inputField" placeholder="Username" onBlur={this.checkIfUsernameIsCorrect}></input>
+                <input type="text" className="inputField" placeholder="Username" onBlur={this.checkIfUsernameIsCorrect} />
                 <div className="error">{this.state.uncorrectUsernameAnswer}</div>
-                <input type="password" className="inputField" placeholder="Password" onBlur={this.checkIfPasswordIsCorrect}></input>
+                <input type="password" className="inputField" placeholder="Password" onBlur={this.checkIfPasswordIsCorrect} />
                 <div className="error">{this.state.uncorrectPasswordAnswer}</div>
-                <input type="submit" value="Send Request"></input>
+                <input type="submit" value="Send Request" />
             </form>
         );
     }
