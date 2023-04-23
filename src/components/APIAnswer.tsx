@@ -24,7 +24,7 @@ async componentDidMount(){
 render(){   
     return (
     <div className="answer-container">
-        <div className="answer">{this.state.answer == "yes" ? (<span className="answer-yes">Success</span>) : (<span className="answer-yes">Failure</span>)}</div>
+        <div className="answer">{this.state.answer == "yes" ? (<span className="answer-yes">Success</span>) : (<span className="answer-no">Failure</span>)}</div>
         <div className="answer-image"><img src={this.state.image} alt="Image" /></div>  
     </div>
     );
