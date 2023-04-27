@@ -1,32 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LoginForm from './LoginForm';
 import APIAnswer from './APIAnswer';
 
-class MyContent extends React.Component{
-    constructor(props: {}){
-        super(props);
-    }
-    
-    state = {
-        isSendAPIRequest: false,
-        sendNewAPIRequest: true
+export default function MyContent(){
+
+    const [isSendAPIRequest, setIsSendAPIRequest] = useState(false);
+    const [sendNewAPIRequest, setSendNewAPIRequest] = useState(true);
+
+    const handleAPIRequest = () => {
+        setIsSendAPIRequest(true);
     };
 
-    handleAPIRequest = () => {
-        this.setState({ isSendAPIRequest: true });
-    }
+    return (
+        <div className="content">
+            {!isSendAPIRequest ? (
+                <LoginForm sendNewAPIRequest={handleAPIRequest} />
+            ) : (
+                <APIAnswer />
+            )}
+        </div>
+    );
 
-    render(){
-        return (
-            <div className="content">
-                {!this.state.isSendAPIRequest ? (
-                    <LoginForm sendNewAPIRequest={this.handleAPIRequest} />
-                ) : (
-                    <APIAnswer />
-                )}
-            </div>
-        );
-    }
 }
-
-export default MyContent;
