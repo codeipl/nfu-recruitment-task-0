@@ -1,75 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface LoginFormProps{
     sendNewAPIRequest: () => void
 }
 
-class LoginForm extends React.Component<LoginFormProps>{    
-    state = {
-        isUsernameCorrect: true,
-        uncorrectUsernameAnswer: "",
-        isPasswordCorrect: true,
-        uncorrectPasswordAnswer: "",
-        isUsernameInputed: false,
-        isPasswordInputed: false,
-    }
+export default function LoginForm(props: LoginFormProps){    
+    const [isUsernameCorrect, setIsUsernameCorrect] = useState(true);
+    const [uncorrectUsernameAnswer, setUncorrectUsernameAnswer] = useState("");
+    const [isPasswordCorrect, setIsPasswordCorrect] = useState(true);
+    const [uncorrectPasswordAnswer, setUncorrectPasswordAnswer] = useState("");
+    const [isUsernameInputed, setIsUsernameInputed] = useState(false);
+    const [isPasswordInputed, setIsPasswordInputed] = useState(false);
 
-    checkIfUsernameIsCorrect = (e: { target: { value: string; }; }) => {
+    const checkIfUsernameIsCorrect = (e: { target: { value: string; }; }) => {
         const correctUsernameChecker = new RegExp(/^[A-Za-z]+$/);
         console.log(e.target.value);
         if(correctUsernameChecker.test(e.target.value)){
-            this.setState({
-                isUsernameInputed: true,
-                isUsernameCorrect: true,
-                uncorrectUsernameAnswer: ""
-              });
+            setIsUsernameInputed(true);
+            setIsUsernameCorrect(true);
+            setUncorrectUsernameAnswer("");
         }
         else{
-            this.setState({
-                isUsernameInputed: true,
-                isUsernameCorrect: false, 
-                uncorrectUsernameAnswer: "Username can contains only upper and lower case letters"
-            });
-        }
-    }
-
-    checkIfPasswordIsCorrect = (e: { target: { value: string; }; }) => {
-        if(e.target.value.length >= 8){
-            this.setState({
-                isPasswordInputed: true,
-                isPasswordCorrect: true,
-                uncorrectPasswordAnswer: ""
-            });
-        }
-        else{
-            this.setState({
-                isPasswordInputed: true,
-                isPasswordCorrect: false, 
-                uncorrectPasswordAnswer: "Password must contains at least 8 digits"
-            });
-        }
-    }
-
-    sendAPIRequest = () => {
-        event.preventDefault();
-        if (this.state.isUsernameCorrect && this.state.isPasswordCorrect && this.state.isUsernameInputed && this.state.isPasswordInputed) {
-            console.log("Sending request");
-            this.props.sendNewAPIRequest();
+            setIsUsernameInputed(true);
+            setIsUsernameCorrect(false); 
+            setUncorrectUsernameAnswer("Username can contains only upper and lower case letters");
         }
     };
 
-    render(){
-        return(
-            <form className="login-form" onSubmit={this.sendAPIRequest}>
-                <h2>Login to the website</h2>
-                <input type="text" className="inputField" placeholder="Username" onBlur={this.checkIfUsernameIsCorrect} />
-                <div className="error">{this.state.uncorrectUsernameAnswer}</div>
-                <input type="password" className="inputField" placeholder="Password" onBlur={this.checkIfPasswordIsCorrect} />
-                <div className="error">{this.state.uncorrectPasswordAnswer}</div>
-                <input type="submit" value="Send Request" />
-            </form>
-        );
-    }
-}
+    const checkIfPasswordIsCorrect = (e: { target: { value: string; }; }) => {
+        if(e.target.value.length >= 8){
+            setIsPasswordInputed(true);
+            setIsPasswordCorrect(true);
+            setUncorrectPasswordAnswer("");
+        }
+        else{
+            setIsPasswordInputed(true);
+            setIsPasswordCorrect(false); 
+            setUncorrectPasswordAnswer("Password must contains at least 8 digits");
+        }
+    };
 
-export default LoginForm;
+    const sendAPIRequest = () => {
+        event.preventDefault();
+        if (isUsernameCorrect && isPasswordCorrect && isUsernameInputed && isPasswordInputed) {
+            console.log("Sending request");
+            props.sendNewAPIRequest();
+        }
+    };
+    
+    return(
+        <form className="login-form" onSubmit={sendAPIRequest}>
+            <h2>Login to the website</h2>
+            <input type="text" className="inputField" placeholder="Username" onBlur={checkIfUsernameIsCorrect} />
+            <div className="error">{uncorrectUsernameAnswer}</div>
+            <input type="password" className="inputField" placeholder="Password" onBlur={checkIfPasswordIsCorrect} />
+            <div className="error">{uncorrectPasswordAnswer}</div>
+            <input type="submit" value="Send Request" />
+        </form>
+    );
+}
