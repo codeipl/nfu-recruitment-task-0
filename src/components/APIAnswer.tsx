@@ -1,32 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 
-export default class APIAnswer extends React.Component{
+export default function APIAnswer(){
 
-state = {
-    answer: "",
-    image: "",
-    isLoading: true
-}
+    const[answer, setAnswer] = useState("");
+    const[image, setImage] = useState("");
+    const[isLoading,setIsLoading] = useState(true);
 
-async componentDidMount(){
-    if (this.state.isLoading) {
-        const response = await axios.get("https://yesno.wtf/api");
-        this.setState({
-          answer: response.data.answer,
-          image: response.data.image,
-          isLoading: false,
-        });
-    }
-}
-
-render(){   
+    useEffect(() => {
+        const fetchAnswer = async () => {
+          if (isLoading) {
+            const response = await axios.get("https://yesno.wtf/api");
+            setAnswer(response.data.answer);
+            setImage(response.data.image);
+            setIsLoading(false);
+          }
+        };
+        fetchAnswer();
+      }, [isLoading]);
+ 
     return (
-    <div className="answer-container">
-        <div className="answer">{this.state.answer == "yes" ? (<span className="answer-yes">Success</span>) : (<span className="answer-no">Failure</span>)}</div>
-        <div className="answer-image"><img src={this.state.image} alt="Image" /></div>  
-    </div>
+        <div className="answer-container">
+        <div className="answer">{answer == "yes" ? (<span className="answer-yes">Success</span>) : (<span className="answer-no">Failure</span>)}</div>
+        <div className="answer-image"><img src={image} alt="Image" /></div>  
+        </div>
     );
-  }
 }
